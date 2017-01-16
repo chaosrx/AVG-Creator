@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace AVG_Creator
         public Form1()
         {
             InitializeComponent();
+
             pictureBox1.Controls.Add(character_box_1);
             pictureBox1.Controls.Add(character_box_2);
             character_box_1.BackColor = Color.Transparent;
-            character_box_2.BackColor = Color.Transparent;
+            character_box_2.BackColor = Color.Transparent; //將角色圖案設為透明
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +65,47 @@ namespace AVG_Creator
                         270, false);
             e.Graphics.FillRectangle((Brush)baseBackground, rect);
             e.Graphics.Flush();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
+            openFileDialog1.Filter = "AVG Creator(*.avgcreator)|*.avgcreator";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true; //使用 openFileDialog 來讀取腳本文件
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            int counter = 0;
+                            string line;
+                            // Read the file and display it line by line.
+                            System.IO.StreamReader file =
+                               new System.IO.StreamReader(openFileDialog1.FileName);
+                            while ((line = file.ReadLine()) != null)
+                            {
+                                //MessageBox.Show(line);
+                                dialogue.Text = line;
+                                counter++;
+                            } //逐行讀入腳本並執行相應工作
+
+                            file.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
         }
     }
 }

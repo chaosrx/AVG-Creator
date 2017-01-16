@@ -39,6 +39,7 @@
             this.關於軟體ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.character_box_2 = new System.Windows.Forms.PictureBox();
             this.character_box_1 = new System.Windows.Forms.PictureBox();
             this.avatar_box = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,15 +47,15 @@
             this.character_name = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.character_box_2 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_1)).BeginInit();
             this.avatar_box.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).BeginInit();
             this.SuspendLayout();
             // 
             // 遊戲ToolStripMenuItem
@@ -71,25 +72,26 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "開啟遊戲";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 保存進度ToolStripMenuItem
             // 
             this.保存進度ToolStripMenuItem.Name = "保存進度ToolStripMenuItem";
-            this.保存進度ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.保存進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.保存進度ToolStripMenuItem.Text = "保存進度";
             // 
             // 載入進度ToolStripMenuItem
             // 
             this.載入進度ToolStripMenuItem.Name = "載入進度ToolStripMenuItem";
-            this.載入進度ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.載入進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.載入進度ToolStripMenuItem.Text = "載入進度";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.退出ToolStripMenuItem.Text = "結束";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -137,6 +139,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1008, 705);
             this.panel1.TabIndex = 1;
+            // 
+            // character_box_2
+            // 
+            this.character_box_2.Image = ((System.Drawing.Image)(resources.GetObject("character_box_2.Image")));
+            this.character_box_2.Location = new System.Drawing.Point(64, 172);
+            this.character_box_2.Name = "character_box_2";
+            this.character_box_2.Size = new System.Drawing.Size(286, 330);
+            this.character_box_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.character_box_2.TabIndex = 3;
+            this.character_box_2.TabStop = false;
             // 
             // character_box_1
             // 
@@ -208,15 +220,9 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // character_box_2
+            // openFileDialog1
             // 
-            this.character_box_2.Image = ((System.Drawing.Image)(resources.GetObject("character_box_2.Image")));
-            this.character_box_2.Location = new System.Drawing.Point(64, 172);
-            this.character_box_2.Name = "character_box_2";
-            this.character_box_2.Size = new System.Drawing.Size(286, 330);
-            this.character_box_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.character_box_2.TabIndex = 3;
-            this.character_box_2.TabStop = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -236,13 +242,13 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_1)).EndInit();
             this.avatar_box.ResumeLayout(false);
             this.avatar_box.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,6 +274,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox character_box_1;
         private System.Windows.Forms.PictureBox character_box_2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
