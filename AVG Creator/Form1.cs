@@ -15,6 +15,10 @@ namespace AVG_Creator
 
     public partial class Form1 : Form
     {
+        int mouse_click = 0;
+        int script_lines = 0;
+        string[] script_content;
+
         public Form1()
         {
             InitializeComponent();
@@ -69,7 +73,8 @@ namespace AVG_Creator
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
+            script_lines = 0;
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
@@ -81,31 +86,30 @@ namespace AVG_Creator
             {
                 try
                 {
-                    if ((myStream = openFileDialog1.OpenFile()) != null)
-                    {
-                        using (myStream)
-                        {
-                            int counter = 0;
-                            string line;
-                            // Read the file and display it line by line.
-                            System.IO.StreamReader file =
-                               new System.IO.StreamReader(openFileDialog1.FileName);
-                            while ((line = file.ReadLine()) != null)
-                            {
-                                //MessageBox.Show(line);
-                                dialogue.Text = line;
-                                counter++;
-                            } //逐行讀入腳本並執行相應工作
+                    string line;
+                    // Read the file and display it line by line.
+                    System.IO.StreamReader file =
+                       new System.IO.StreamReader(openFileDialog1.FileName);
 
-                            file.Close();
-                        }
+                    script_content = new string[100000];
+
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        script_content[script_lines] = line.ToString();
+                        script_lines++;
                     }
+                    file.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    MessageBox.Show("讀取文件時發生錯誤：" + ex.Message);
                 }
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            mouse_click = 1;
         }
     }
 }
