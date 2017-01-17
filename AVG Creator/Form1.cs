@@ -154,6 +154,7 @@ namespace AVG_Creator
                                 string[] plmc = process.Split(',');
                                 background_player.URL = "assets\\" + plmc[0];
                                 background_player.settings.volume = Int32.Parse(plmc[1]);
+                                background_player.settings.setMode("loop", true);
                                 background_player.Ctlcontrols.play();
                                 current_line++;
                                 Load_Next_Scene();
