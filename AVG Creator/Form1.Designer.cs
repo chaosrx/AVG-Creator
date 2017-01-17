@@ -55,6 +55,9 @@
             this.background = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.character_box_3 = new System.Windows.Forms.PictureBox();
+            this.character_box_4 = new System.Windows.Forms.PictureBox();
+            this.character_box_5 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.audio_player)).BeginInit();
@@ -65,6 +68,9 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_5)).BeginInit();
             this.SuspendLayout();
             // 
             // 遊戲ToolStripMenuItem
@@ -142,6 +148,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.character_box_5);
+            this.panel1.Controls.Add(this.character_box_4);
+            this.panel1.Controls.Add(this.character_box_3);
             this.panel1.Controls.Add(this.audio_player);
             this.panel1.Controls.Add(this.background_player);
             this.panel1.Controls.Add(this.character_box_2);
@@ -176,21 +185,23 @@
             // 
             // character_box_2
             // 
-            this.character_box_2.Location = new System.Drawing.Point(64, 172);
+            this.character_box_2.Location = new System.Drawing.Point(147, 172);
             this.character_box_2.Name = "character_box_2";
-            this.character_box_2.Size = new System.Drawing.Size(286, 330);
+            this.character_box_2.Size = new System.Drawing.Size(86, 330);
             this.character_box_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.character_box_2.TabIndex = 3;
             this.character_box_2.TabStop = false;
+            this.character_box_2.Click += new System.EventHandler(this.character_box_2_Click);
             // 
             // character_box_1
             // 
-            this.character_box_1.Location = new System.Drawing.Point(664, 172);
+            this.character_box_1.Location = new System.Drawing.Point(48, 172);
             this.character_box_1.Name = "character_box_1";
-            this.character_box_1.Size = new System.Drawing.Size(286, 330);
+            this.character_box_1.Size = new System.Drawing.Size(93, 330);
             this.character_box_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.character_box_1.TabIndex = 2;
             this.character_box_1.TabStop = false;
+            this.character_box_1.Click += new System.EventHandler(this.character_box_1_Click);
             // 
             // avatar_box
             // 
@@ -311,6 +322,36 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // character_box_3
+            // 
+            this.character_box_3.Location = new System.Drawing.Point(239, 172);
+            this.character_box_3.Name = "character_box_3";
+            this.character_box_3.Size = new System.Drawing.Size(86, 330);
+            this.character_box_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.character_box_3.TabIndex = 6;
+            this.character_box_3.TabStop = false;
+            this.character_box_3.Click += new System.EventHandler(this.character_box_3_Click);
+            // 
+            // character_box_4
+            // 
+            this.character_box_4.Location = new System.Drawing.Point(331, 172);
+            this.character_box_4.Name = "character_box_4";
+            this.character_box_4.Size = new System.Drawing.Size(86, 330);
+            this.character_box_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.character_box_4.TabIndex = 7;
+            this.character_box_4.TabStop = false;
+            this.character_box_4.Click += new System.EventHandler(this.character_box_4_Click);
+            // 
+            // character_box_5
+            // 
+            this.character_box_5.Location = new System.Drawing.Point(423, 172);
+            this.character_box_5.Name = "character_box_5";
+            this.character_box_5.Size = new System.Drawing.Size(86, 330);
+            this.character_box_5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.character_box_5.TabIndex = 8;
+            this.character_box_5.TabStop = false;
+            this.character_box_5.Click += new System.EventHandler(this.character_box_5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -339,6 +380,9 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character_box_5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,6 +416,9 @@
         private System.Windows.Forms.Button select_2;
         private System.Windows.Forms.Button select_1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.PictureBox character_box_5;
+        private System.Windows.Forms.PictureBox character_box_4;
+        private System.Windows.Forms.PictureBox character_box_3;
     }
 }
 

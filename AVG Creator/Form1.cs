@@ -33,13 +33,20 @@ namespace AVG_Creator
 
             background.Controls.Add(character_box_1);
             background.Controls.Add(character_box_2);
+            background.Controls.Add(character_box_3);
+            background.Controls.Add(character_box_4);
+            background.Controls.Add(character_box_5);
             character_box_1.BackColor = Color.Transparent;
-            character_box_2.BackColor = Color.Transparent; //將角色圖案設為透明
+            character_box_2.BackColor = Color.Transparent;
+            character_box_3.BackColor = Color.Transparent;
+            character_box_4.BackColor = Color.Transparent;
+            character_box_5.BackColor = Color.Transparent; //將角色圖案設為透明
         }
 
         public void Load_Next_Scene()
         {
             string process;
+            Bitmap bitmap;
             try
             {
                 if (current_line < script_lines && game_loaded == true)
@@ -105,12 +112,60 @@ namespace AVG_Creator
                                     character_box_1.Image = Image.FromFile("assets\\" + character[1]);
                                     character_box_1.Location = new Point(Int32.Parse(character[2]), Int32.Parse(character[3]));
                                     character_box_1.Size = new Size(Int32.Parse(character[4]), Int32.Parse(character[5]));
+                                    if (character[6] == "1")
+                                    {
+                                        bitmap = (Bitmap)Bitmap.FromFile("assets\\" + character[1]);
+                                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                                        character_box_1.Image = bitmap;
+                                    }
                                 }
                                 if (character[0] == "2")
                                 {
                                     character_box_2.Image = Image.FromFile("assets\\" + character[1]);
                                     character_box_2.Location = new Point(Int32.Parse(character[2]), Int32.Parse(character[3]));
                                     character_box_2.Size = new Size(Int32.Parse(character[4]), Int32.Parse(character[5]));
+                                    if (character[6] == "1")
+                                    {
+                                        bitmap = (Bitmap)Bitmap.FromFile("assets\\" + character[1]);
+                                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                                        character_box_2.Image = bitmap;
+                                    }
+                                }
+                                if (character[0] == "3")
+                                {
+                                    character_box_3.Image = Image.FromFile("assets\\" + character[1]);
+                                    character_box_3.Location = new Point(Int32.Parse(character[2]), Int32.Parse(character[3]));
+                                    character_box_3.Size = new Size(Int32.Parse(character[4]), Int32.Parse(character[5]));
+                                    if (character[6] == "1")
+                                    {
+                                        bitmap = (Bitmap)Bitmap.FromFile("assets\\" + character[1]);
+                                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                                        character_box_3.Image = bitmap;
+                                    }
+                                }
+                                if (character[0] == "4")
+                                {
+                                    character_box_4.Image = Image.FromFile("assets\\" + character[1]);
+                                    character_box_4.Location = new Point(Int32.Parse(character[2]), Int32.Parse(character[3]));
+                                    character_box_4.Size = new Size(Int32.Parse(character[4]), Int32.Parse(character[5]));
+                                    if (character[6] == "1")
+                                    {
+                                        bitmap = (Bitmap)Bitmap.FromFile("assets\\" + character[1]);
+                                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                                        character_box_4.Image = bitmap;
+                                    }
+                                }
+                                if (character[0] == "5")
+                                {
+                                    character_box_5.Image = Image.FromFile("assets\\" + character[1]);
+                                    character_box_5.Location = new Point(Int32.Parse(character[2]), Int32.Parse(character[3]));
+                                    character_box_5.Size = new Size(Int32.Parse(character[4]), Int32.Parse(character[5]));
+                                    if (character[6] == "1")
+                                    {
+                                        bitmap = (Bitmap)Bitmap.FromFile("assets\\" + character[1]);
+                                        bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                                        character_box_5.Image = bitmap;
+                                    }
                                 }
                                 current_line++;
                                 Load_Next_Scene();
@@ -123,6 +178,14 @@ namespace AVG_Creator
                             case "[crcl]":
                                 process = script_content[current_line].Remove(0, 6);
                                 string[] crcl = process.Split(',');
+                                if (crcl[0] == "0")
+                                {
+                                    character_box_1.Image = null;
+                                    character_box_2.Image = null;
+                                    character_box_3.Image = null;
+                                    character_box_4.Image = null;
+                                    character_box_5.Image = null;
+                                }
                                 if (crcl[0] == "1")
                                 {
                                     character_box_1.Image = null;
@@ -134,8 +197,15 @@ namespace AVG_Creator
 
                                 if (crcl[0] == "3")
                                 {
-                                    character_box_1.Image = null;
-                                    character_box_2.Image = null;
+                                    character_box_3.Image = null;
+                                }
+                                if (crcl[0] == "4")
+                                {
+                                    character_box_4.Image = null;
+                                }
+                                if (crcl[0] == "5")
+                                {
+                                    character_box_5.Image = null;
                                 }
                                 current_line++;
                                 Load_Next_Scene();
@@ -306,6 +376,18 @@ namespace AVG_Creator
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             script_lines = 0;
+            current_line = 0;
+
+            character_box_1.Image = null;
+            character_box_2.Image = null;
+            character_box_3.Image = null;
+            character_box_4.Image = null;
+            character_box_5.Image = null;
+
+            select_1.Visible = false;
+            select_2.Visible = false;
+            select_3.Visible = false;
+            select_4.Visible = false;
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -442,6 +524,31 @@ namespace AVG_Creator
                 MessageBox.Show("尚未載入遊戲", "訊息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
+        }
+
+        private void character_box_1_Click(object sender, EventArgs e)
+        {
+            Load_Next_Scene();
+        }
+
+        private void character_box_2_Click(object sender, EventArgs e)
+        {
+            Load_Next_Scene();
+        }
+
+        private void character_box_3_Click(object sender, EventArgs e)
+        {
+            Load_Next_Scene();
+        }
+
+        private void character_box_4_Click(object sender, EventArgs e)
+        {
+            Load_Next_Scene();
+        }
+
+        private void character_box_5_Click(object sender, EventArgs e)
+        {
+            Load_Next_Scene();
         }
     }
 }

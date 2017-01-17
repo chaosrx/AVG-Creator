@@ -1,7 +1,8 @@
 # AVG Creator
 AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只要學會簡易的腳本就能建立一款自己的 AVG 遊戲。
 # 遊戲範例
-如果你好奇 AVG Creator 做出來的遊戲是什麼樣的，我們提供了一組[官方範例](https://github.com/gentle-shao/AVG-Creator/blob/master/sample.zip "遊戲範例")。
+如果你好奇 AVG Creator 做出來的遊戲是什麼樣的，我們提供了一組[遊戲範例](https://github.com/gentle-shao/AVG-Creator/blob/master/sample.zip "遊戲範例")。
+注意：這款遊戲中的人物素材是來自[星宝転生ジュエルセイバー](http://www.jewel-s.jp/ "官方網站")（JewelSaviorFREE）
 ![Screenshot](http://i.imgur.com/vSX7DkQ.jpg)
 ![Screenshot](http://i.imgur.com/VmOAFj6.png)
 ![Screenshot](http://i.imgur.com/9YNG3Ve.jpg)
@@ -23,9 +24,9 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 //遊戲資訊：[info]遊戲名稱,作者,備註,AVG Creator版本,遊戲版本
 //載入背景：[bgim]要載入的背景圖片檔名（應放在 assets 資料夾下）
 //顯示對話：[dial]角色名稱,對話內容（不可包含小寫逗號）,大頭貼圖片檔名
-//載入角色：[char]1/2（最多可同時顯示兩個角色）,圖片檔名,X座標,Y座標,圖片長度,圖片寬度
+//載入角色：[char]1/2/3/4/5（最多可同時顯示五個角色）,圖片檔名,X座標,Y座標,圖片長度,圖片寬度,是否翻轉（0=不需要，1=需要）
 //場景結束：[next]等待玩家再次點擊滑鼠，載入下一個場景（此函數沒有提供參數，直接調用即可）
-//清除角色：[crcl]1/2/3（清除角色1或角色2，3為同時清除兩者）
+//清除角色：[crcl]1/2/3/4/5/0（清除角色1/2/3/4/5，0為全部清除）
 //清除對話：[dlcl]清除對話框內容及大頭貼（此函數沒有提供參數，直接調用即可）
 //背景音樂：[plmc]背景音樂檔名（支援mp3、wav格式）,音量（0~100）
 //停止播放：[stmc]停止播放目前背景音樂（此函數沒有提供參數，直接調用即可）
@@ -45,7 +46,7 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 [show]
 [bgim]background\5_town_a.jpg
 [plmc]music\town1_d.mid,70
-[char]1,character\f043.png,400,200,300,400
+[char]1,character\f043.png,400,200,300,400,0
 [dial]阿灰,你是第一次來吧？歡迎來到 AVG Creator 的世界，接下來就讓我帶你到處走走逛逛囉！,icon\f043.png
 [next]
 [dial]阿灰,AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只要學會簡易的腳本就能建立一款自己的 AVG 遊戲,icon\f043.png
@@ -55,8 +56,8 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 [dial]阿灰,接下來，我要召喚出我的好朋友給你認識，順便展示一下 AVG Creator 的威力！,icon\f043.png
 [next]
 [crcl]1
-[char]1,character\f043.png,500,200,300,400
-[char]2,character\f042.png,200,200,300,400
+[char]1,character\f043.png,500,200,300,400,0
+[char]2,character\f042.png,200,200,300,400,0
 [dial]阿灰,這是灰灰，牠是我養的狗～～灰灰，來打聲招呼,icon\f043.png
 [next]
 [plau]music\small_dog.mp3,70
@@ -66,8 +67,8 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 [next]
 [dial]灰灰,······,icon\f042.png
 [next]
-[crcl]3
-[char]1,character\f043.png,400,200,300,400
+[crcl]0
+[char]1,character\f043.png,400,200,300,400,0
 [dial]阿灰,就像你剛才看到的，AVG Creator 能夠自由地讓不同的角色登場，只要如此運用，就能製作出 AVG 遊戲了呢！不過精彩的還在後頭～,icon\f043.png
 [next]
 [plau]music\running1.mp3,70
@@ -97,8 +98,8 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 [dial]阿灰,（其實剛才只是為了示範選項而吃的飯啊···）,icon\f043.png
 [next]
 [crcl]1
-[char]2,character\f344.png,500,200,300,400
-[char]1,character\f043.png,200,200,300,400
+[char]2,character\f344.png,500,200,300,400,0
+[char]1,character\f043.png,200,200,300,400,0
 [dial]小生,你這笨蛋，待在這裡幹嘛？,icon\f344.png
 [next]
 [dial]阿灰,······你說誰是笨蛋,icon\f043.png
