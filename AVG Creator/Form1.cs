@@ -18,6 +18,8 @@ namespace AVG_Creator
     {
         int script_lines = 0;
         int current_line = 0;
+        int answer = 0;
+        int software_version = 1000;
         string[] script_content;
         string[] game_info; //[0]=遊戲名稱,[1]=作者,[2]=備註,[3]=AVG Creator版本,[4]=遊戲版本
         bool game_loaded = false;
@@ -57,6 +59,15 @@ namespace AVG_Creator
                                 for( int i = 0; i<5; i++ )
                                 {
                                     game_info[i] = info[i];
+                                }
+                                if( Int32.Parse(game_info[3]) > software_version )
+                                {
+                                    DialogResult result;
+                                    result = MessageBox.Show("這款遊戲使用了較高版本的 AVG Creator 製作，如果採用目前版本執行的話有可能會發生錯誤情況。\n要忽略警告訊息繼續載入嗎？", "警告", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                                    if (result == System.Windows.Forms.DialogResult.No)
+                                    {
+                                        this.Close();
+                                    }
                                 }
                                 this.Text = game_info[0] + " " + game_info[4];
                                 current_line++;
@@ -169,6 +180,69 @@ namespace AVG_Creator
                                 current_line++;
                                 Load_Next_Scene();
                             break;
+
+                            case "[goto]":
+                                process = script_content[current_line].Remove(0, 6);
+                                current_line = Int32.Parse(process)-1;
+                                Load_Next_Scene();
+                            break;
+
+                            case "[sect]":
+                                process = script_content[current_line].Remove(0, 6);
+                                string[] sect = process.Split(',');
+                                dialogue.Visible = false;
+                                if( sect[0] != "null" )
+                                {
+                                    select_1.Visible = true;
+                                    select_1.Text = sect[0];
+                                }
+                                if (sect[1] != "null")
+                                {
+                                    select_2.Visible = true;
+                                    select_2.Text = sect[1];
+                                }
+                                if (sect[2] != "null")
+                                {
+                                    select_3.Visible = true;
+                                    select_3.Text = sect[2];
+                                }
+                                if (sect[3] != "null")
+                                {
+                                    select_4.Visible = true;
+                                    select_4.Text = sect[3];
+                                }
+                                current_line++;
+                                Load_Next_Scene();
+                            break;
+
+                            case "[answ]":
+                                process = script_content[current_line].Remove(0, 6);
+                                string[] answ = process.Split(',');
+                                dialogue.Visible = true;
+
+                                select_1.Visible = false;
+                                select_2.Visible = false;
+                                select_3.Visible = false;
+                                select_4.Visible = false;
+
+                                if ( answer == 1 && answ[0] != null )
+                                {
+                                    current_line = Int32.Parse(answ[0])-1;
+                                }
+                                if (answer == 2 && answ[1] != null)
+                                {
+                                    current_line = Int32.Parse(answ[1])-1;
+                                }
+                                if (answer == 3 && answ[2] != null)
+                                {
+                                    current_line = Int32.Parse(answ[2]) - 1;
+                                }
+                                if (answer == 4 && answ[3] != null)
+                                {
+                                    current_line = Int32.Parse(answ[3]) - 1;
+                                }
+                                Load_Next_Scene();
+                            break;
                         }
 
                     }
@@ -250,8 +324,6 @@ namespace AVG_Creator
                         script_lines++;
                     }
 
-                    //script_content = new string[script_lines];
-
                     file.Close();
 
                     game_loaded = true;
@@ -283,6 +355,85 @@ namespace AVG_Creator
             {
                 MessageBox.Show("尚未載入遊戲","訊息",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+        }
+
+        private void select_1_Click(object sender, EventArgs e)
+        {
+            answer = 1;
+            Load_Next_Scene();
+        }
+
+        private void select_2_Click(object sender, EventArgs e)
+        {
+            answer = 2;
+            Load_Next_Scene();
+        }
+
+        private void select_3_Click(object sender, EventArgs e)
+        {
+            answer = 3;
+            Load_Next_Scene();
+        }
+
+        private void select_4_Click(object sender, EventArgs e)
+        {
+            answer = 4;
+            Load_Next_Scene();
+        }
+
+        private void 保存進度ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if( game_loaded == true )
+            {
+                Stream myStream;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+                saveFileDialog1.Filter = "AVG Creator save(*.avgsave)|*.avgsave";
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if ((myStream = saveFileDialog1.OpenFile()) != null)
+                    {
+                        myStream.Close();
+                    }
+                    using (StreamWriter newTask = new StreamWriter(saveFileDialog1.FileName, false))
+                    {
+                        newTask.WriteLine((current_line - 1).ToString());
+                    }
+                }
+            } else {
+                MessageBox.Show("尚未載入遊戲", "訊息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        private void 載入進度ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(game_loaded == true)
+            {
+                int current;
+
+                OpenFileDialog openFileDialog2 = new OpenFileDialog();
+                openFileDialog2.InitialDirectory = Assembly.GetExecutingAssembly().Location;
+                openFileDialog2.Filter = "AVG Creator save(*.avgsave)|*.avgsave";
+                openFileDialog2.FilterIndex = 2;
+                openFileDialog2.RestoreDirectory = true; //使用 openFileDialog 來讀取腳本文件
+
+                if (openFileDialog2.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.StreamReader sr = new
+                       System.IO.StreamReader(openFileDialog2.FileName);
+                    current = Int32.Parse(sr.ReadToEnd());
+                    sr.Close();
+                    current_line = current;
+                    Load_Next_Scene();
+                }
+            } else {
+                MessageBox.Show("尚未載入遊戲", "訊息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
     }
 }

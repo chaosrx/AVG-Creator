@@ -50,6 +50,11 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.background_player = new AxWMPLib.AxWindowsMediaPlayer();
             this.audio_player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.select_1 = new System.Windows.Forms.Button();
+            this.select_2 = new System.Windows.Forms.Button();
+            this.select_3 = new System.Windows.Forms.Button();
+            this.select_4 = new System.Windows.Forms.Button();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).BeginInit();
@@ -85,12 +90,14 @@
             this.保存進度ToolStripMenuItem.Name = "保存進度ToolStripMenuItem";
             this.保存進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.保存進度ToolStripMenuItem.Text = "保存進度";
+            this.保存進度ToolStripMenuItem.Click += new System.EventHandler(this.保存進度ToolStripMenuItem_Click);
             // 
             // 載入進度ToolStripMenuItem
             // 
             this.載入進度ToolStripMenuItem.Name = "載入進度ToolStripMenuItem";
             this.載入進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.載入進度ToolStripMenuItem.Text = "載入進度";
+            this.載入進度ToolStripMenuItem.Click += new System.EventHandler(this.載入進度ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
@@ -178,6 +185,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.select_4);
+            this.panel2.Controls.Add(this.select_3);
+            this.panel2.Controls.Add(this.select_2);
+            this.panel2.Controls.Add(this.select_1);
             this.panel2.Controls.Add(this.dialogue);
             this.panel2.Location = new System.Drawing.Point(194, 35);
             this.panel2.Name = "panel2";
@@ -247,6 +258,58 @@
             this.audio_player.TabIndex = 5;
             this.audio_player.Visible = false;
             // 
+            // select_1
+            // 
+            this.select_1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_1.Location = new System.Drawing.Point(20, 13);
+            this.select_1.Name = "select_1";
+            this.select_1.Size = new System.Drawing.Size(352, 53);
+            this.select_1.TabIndex = 5;
+            this.select_1.Text = "button1";
+            this.select_1.UseVisualStyleBackColor = true;
+            this.select_1.Visible = false;
+            this.select_1.Click += new System.EventHandler(this.select_1_Click);
+            // 
+            // select_2
+            // 
+            this.select_2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_2.Location = new System.Drawing.Point(20, 72);
+            this.select_2.Name = "select_2";
+            this.select_2.Size = new System.Drawing.Size(352, 53);
+            this.select_2.TabIndex = 6;
+            this.select_2.Text = "button1";
+            this.select_2.UseVisualStyleBackColor = true;
+            this.select_2.Visible = false;
+            this.select_2.Click += new System.EventHandler(this.select_2_Click);
+            // 
+            // select_3
+            // 
+            this.select_3.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_3.Location = new System.Drawing.Point(378, 13);
+            this.select_3.Name = "select_3";
+            this.select_3.Size = new System.Drawing.Size(352, 53);
+            this.select_3.TabIndex = 7;
+            this.select_3.Text = "button1";
+            this.select_3.UseVisualStyleBackColor = true;
+            this.select_3.Visible = false;
+            this.select_3.Click += new System.EventHandler(this.select_3_Click);
+            // 
+            // select_4
+            // 
+            this.select_4.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_4.Location = new System.Drawing.Point(378, 72);
+            this.select_4.Name = "select_4";
+            this.select_4.Size = new System.Drawing.Size(352, 53);
+            this.select_4.TabIndex = 8;
+            this.select_4.Text = "button1";
+            this.select_4.UseVisualStyleBackColor = true;
+            this.select_4.Visible = false;
+            this.select_4.Click += new System.EventHandler(this.select_4_Click);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -302,6 +365,11 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private AxWMPLib.AxWindowsMediaPlayer background_player;
         private AxWMPLib.AxWindowsMediaPlayer audio_player;
+        private System.Windows.Forms.Button select_4;
+        private System.Windows.Forms.Button select_3;
+        private System.Windows.Forms.Button select_2;
+        private System.Windows.Forms.Button select_1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
 

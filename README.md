@@ -1,7 +1,7 @@
 # AVG Creator
 AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只要學會簡易的腳本就能建立一款自己的 AVG 遊戲。
 # 注意事項
-這款軟體目前仍處於開發狀態，腳本、函數及功能都還有可能變更的可能性，在穩定版本發布之前，不建議作為正式遊戲開發用途。
+這款軟體目前仍處於開發狀態，腳本、函數及功能還有可能變動，在穩定版本發布之前，不建議作為正式遊戲開發用途。
 #腳本釋例
 ```
 //AVG Creator Sample Script
@@ -24,22 +24,28 @@ AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只�
 //播放音效：[plau]音效檔名（支援mp3、wav格式）,音量（0~100） 音效播放一次即停止，故不提供函數來停止播放
 //全屏模式：[full]隱藏對話框（此函數沒有提供參數，直接調用即可）
 //退出全屏：[show]顯示對話框（此函數沒有提供參數，直接調用即可）
+//跳至某行：[goto]從指定的行數繼續執行
+//給予選項：[sect]選項1,選項2,選項3,選項4（如果選項不足四個，需填入null）
+//選項結果：[answ]選擇選項1後要跳至哪一行,選擇選項2後要跳至哪一行,選擇選項3後要跳至哪一行,選擇選項4後要跳至哪一行（如果選項不足四個，需填入null）
 //
 //
-[info]League of Legends,Gentle_Shao,這款遊戲是開發釋例,1000,v1.0.0.0
+[info]League of Legends,Gentle_Shao,這款遊戲是開發釋例,1001,v1.0.0.0
+//[goto]33
 [plmc]music\background.mp3,50
 [bgim]background\1_forest_a.jpg
 [dial]納瑟斯,什麼？！你說雷尼克頓不是我的親哥哥...,avatar\nasus.jpg
 [char]1,character\nasus.png,664,172,286,330
 //[char]2,character\nasus.png,264,172,186,230
 [next]
-[full]
 [plau]music\poka01.mp3,100
 [bgim]background\1_forest_b.jpg
 [dial]納瑟斯,怎麼可能呢,avatar\nasus.jpg
 [next]
-[show]
-//[dlcl]
-[crcl]3
-[stmc]
+[sect]接受事實,都是假的,null,null
+[next]
+[answ]41,43,null,null
+[dial]納瑟斯,你選擇了：接受事實,avatar\nasus.jpg
+[goto]44
+[dial]納瑟斯,你選擇了：都是假的,avatar\nasus.jpg
+[next]
 ```
