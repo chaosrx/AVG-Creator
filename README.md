@@ -1,7 +1,7 @@
 # AVG Creator
 AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只要學會簡易的腳本就能建立一款自己的 AVG 遊戲。
 # 遊戲範例
-如果你好奇 AVG Creator 做出來的遊戲是什麼樣的，我們提供了一組[遊戲範例](https://github.com/gentle-shao/AVG-Creator/blob/master/sample.zip "遊戲範例")。
+如果你好奇 AVG Creator 做出來的遊戲是什麼樣的，我們提供了一組[遊戲範例](https://github.com/gentle-shao/AVG-Creator/raw/master/sample.zip "遊戲範例")。
 注意：這款遊戲中的人物素材是來自[星宝転生ジュエルセイバー](http://www.jewel-s.jp/ "官方網站")（JewelSaviorFREE）
 ![Screenshot](http://i.imgur.com/vSX7DkQ.jpg)
 ![Screenshot](http://i.imgur.com/VmOAFj6.png)
