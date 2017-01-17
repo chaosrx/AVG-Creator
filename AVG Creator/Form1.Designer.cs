@@ -45,17 +45,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dialogue = new System.Windows.Forms.Label();
             this.character_name = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.background = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.background_player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.audio_player = new AxWMPLib.AxWindowsMediaPlayer();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_1)).BeginInit();
             this.avatar_box.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background_player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).BeginInit();
             this.SuspendLayout();
             // 
             // 遊戲ToolStripMenuItem
@@ -107,13 +111,14 @@
             // 關於遊戲ToolStripMenuItem
             // 
             this.關於遊戲ToolStripMenuItem.Name = "關於遊戲ToolStripMenuItem";
-            this.關於遊戲ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.關於遊戲ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.關於遊戲ToolStripMenuItem.Text = "關於遊戲";
+            this.關於遊戲ToolStripMenuItem.Click += new System.EventHandler(this.關於遊戲ToolStripMenuItem_Click);
             // 
             // 關於軟體ToolStripMenuItem
             // 
             this.關於軟體ToolStripMenuItem.Name = "關於軟體ToolStripMenuItem";
-            this.關於軟體ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.關於軟體ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.關於軟體ToolStripMenuItem.Text = "關於軟體";
             this.關於軟體ToolStripMenuItem.Click += new System.EventHandler(this.關於軟體ToolStripMenuItem_Click);
             // 
@@ -130,10 +135,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.audio_player);
+            this.panel1.Controls.Add(this.background_player);
             this.panel1.Controls.Add(this.character_box_2);
             this.panel1.Controls.Add(this.character_box_1);
             this.panel1.Controls.Add(this.avatar_box);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.background);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
@@ -142,7 +149,6 @@
             // 
             // character_box_2
             // 
-            this.character_box_2.Image = ((System.Drawing.Image)(resources.GetObject("character_box_2.Image")));
             this.character_box_2.Location = new System.Drawing.Point(64, 172);
             this.character_box_2.Name = "character_box_2";
             this.character_box_2.Size = new System.Drawing.Size(286, 330);
@@ -152,7 +158,6 @@
             // 
             // character_box_1
             // 
-            this.character_box_1.Image = ((System.Drawing.Image)(resources.GetObject("character_box_1.Image")));
             this.character_box_1.Location = new System.Drawing.Point(664, 172);
             this.character_box_1.Name = "character_box_1";
             this.character_box_1.Size = new System.Drawing.Size(286, 330);
@@ -164,7 +169,7 @@
             // 
             this.avatar_box.Controls.Add(this.panel2);
             this.avatar_box.Controls.Add(this.character_name);
-            this.avatar_box.Controls.Add(this.pictureBox2);
+            this.avatar_box.Controls.Add(this.avatar);
             this.avatar_box.Location = new System.Drawing.Point(12, 502);
             this.avatar_box.Name = "avatar_box";
             this.avatar_box.Size = new System.Drawing.Size(984, 191);
@@ -187,7 +192,7 @@
             this.dialogue.Name = "dialogue";
             this.dialogue.Size = new System.Drawing.Size(787, 156);
             this.dialogue.TabIndex = 4;
-            this.dialogue.Text = "字幕";
+            this.dialogue.Click += new System.EventHandler(this.dialogue_Click);
             // 
             // character_name
             // 
@@ -195,35 +200,52 @@
             this.character_name.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.character_name.Location = new System.Drawing.Point(194, 8);
             this.character_name.Name = "character_name";
-            this.character_name.Size = new System.Drawing.Size(86, 24);
+            this.character_name.Size = new System.Drawing.Size(0, 24);
             this.character_name.TabIndex = 3;
-            this.character_name.Text = "腳色名稱";
             // 
-            // pictureBox2
+            // avatar
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(8, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(180, 180);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.avatar.Location = new System.Drawing.Point(8, 6);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(180, 180);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatar.TabIndex = 2;
+            this.avatar.TabStop = false;
             // 
-            // pictureBox1
+            // background
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1008, 705);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.background.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.background.Location = new System.Drawing.Point(0, 0);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(1008, 705);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background.TabIndex = 0;
+            this.background.TabStop = false;
+            this.background.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // background_player
+            // 
+            this.background_player.Enabled = true;
+            this.background_player.Location = new System.Drawing.Point(677, 29);
+            this.background_player.Name = "background_player";
+            this.background_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("background_player.OcxState")));
+            this.background_player.Size = new System.Drawing.Size(236, 50);
+            this.background_player.TabIndex = 4;
+            this.background_player.Visible = false;
+            // 
+            // audio_player
+            // 
+            this.audio_player.Enabled = true;
+            this.audio_player.Location = new System.Drawing.Point(677, 85);
+            this.audio_player.Name = "audio_player";
+            this.audio_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audio_player.OcxState")));
+            this.audio_player.Size = new System.Drawing.Size(236, 50);
+            this.audio_player.TabIndex = 5;
+            this.audio_player.Visible = false;
             // 
             // Form1
             // 
@@ -238,7 +260,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AVGCreator";
+            this.Text = "AVG Creator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -248,8 +270,10 @@
             this.avatar_box.ResumeLayout(false);
             this.avatar_box.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background_player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,15 +291,17 @@
         private System.Windows.Forms.ToolStripMenuItem 關於軟體ToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.Panel avatar_box;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label character_name;
         private System.Windows.Forms.Label dialogue;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox character_box_1;
         private System.Windows.Forms.PictureBox character_box_2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private AxWMPLib.AxWindowsMediaPlayer background_player;
+        private AxWMPLib.AxWindowsMediaPlayer audio_player;
     }
 }
 
