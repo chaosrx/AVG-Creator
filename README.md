@@ -1,5 +1,7 @@
 # AVG Creator
 AVG Creator 是一款開放、簡單、易用的冒險故事遊戲引擎，只要學會簡易的腳本就能建立一款自己的 AVG 遊戲。
+# 遊戲範例
+如果你好奇 AVG Creator 做出來的遊戲是什麼樣的，我們提供了一組[官方範例](https://github.com/gentle-shao/AVG-Creator/blob/master/sample.zip "遊戲範例")。
 # 注意事項
 這款軟體目前仍處於開發狀態，腳本、函數及功能還有可能變動，在穩定版本發布之前，不建議作為正式遊戲開發用途。
 #腳本釋例
