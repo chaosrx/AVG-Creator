@@ -39,32 +39,32 @@
             this.關於軟體ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.audio_player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.background_player = new AxWMPLib.AxWindowsMediaPlayer();
             this.character_box_2 = new System.Windows.Forms.PictureBox();
             this.character_box_1 = new System.Windows.Forms.PictureBox();
             this.avatar_box = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.select_4 = new System.Windows.Forms.Button();
+            this.select_3 = new System.Windows.Forms.Button();
+            this.select_2 = new System.Windows.Forms.Button();
+            this.select_1 = new System.Windows.Forms.Button();
             this.dialogue = new System.Windows.Forms.Label();
             this.character_name = new System.Windows.Forms.Label();
             this.avatar = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.background_player = new AxWMPLib.AxWindowsMediaPlayer();
-            this.audio_player = new AxWMPLib.AxWindowsMediaPlayer();
-            this.select_1 = new System.Windows.Forms.Button();
-            this.select_2 = new System.Windows.Forms.Button();
-            this.select_3 = new System.Windows.Forms.Button();
-            this.select_4 = new System.Windows.Forms.Button();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background_player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_1)).BeginInit();
             this.avatar_box.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.background_player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).BeginInit();
             this.SuspendLayout();
             // 
             // 遊戲ToolStripMenuItem
@@ -81,28 +81,28 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.toolStripMenuItem1.Text = "開啟遊戲";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 保存進度ToolStripMenuItem
             // 
             this.保存進度ToolStripMenuItem.Name = "保存進度ToolStripMenuItem";
-            this.保存進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.保存進度ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.保存進度ToolStripMenuItem.Text = "保存進度";
             this.保存進度ToolStripMenuItem.Click += new System.EventHandler(this.保存進度ToolStripMenuItem_Click);
             // 
             // 載入進度ToolStripMenuItem
             // 
             this.載入進度ToolStripMenuItem.Name = "載入進度ToolStripMenuItem";
-            this.載入進度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.載入進度ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.載入進度ToolStripMenuItem.Text = "載入進度";
             this.載入進度ToolStripMenuItem.Click += new System.EventHandler(this.載入進度ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.退出ToolStripMenuItem.Text = "結束";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -118,14 +118,14 @@
             // 關於遊戲ToolStripMenuItem
             // 
             this.關於遊戲ToolStripMenuItem.Name = "關於遊戲ToolStripMenuItem";
-            this.關於遊戲ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.關於遊戲ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.關於遊戲ToolStripMenuItem.Text = "關於遊戲";
             this.關於遊戲ToolStripMenuItem.Click += new System.EventHandler(this.關於遊戲ToolStripMenuItem_Click);
             // 
             // 關於軟體ToolStripMenuItem
             // 
             this.關於軟體ToolStripMenuItem.Name = "關於軟體ToolStripMenuItem";
-            this.關於軟體ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.關於軟體ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.關於軟體ToolStripMenuItem.Text = "關於軟體";
             this.關於軟體ToolStripMenuItem.Click += new System.EventHandler(this.關於軟體ToolStripMenuItem_Click);
             // 
@@ -154,6 +154,26 @@
             this.panel1.Size = new System.Drawing.Size(1008, 705);
             this.panel1.TabIndex = 1;
             // 
+            // audio_player
+            // 
+            this.audio_player.Enabled = true;
+            this.audio_player.Location = new System.Drawing.Point(677, 85);
+            this.audio_player.Name = "audio_player";
+            this.audio_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audio_player.OcxState")));
+            this.audio_player.Size = new System.Drawing.Size(236, 50);
+            this.audio_player.TabIndex = 5;
+            this.audio_player.Visible = false;
+            // 
+            // background_player
+            // 
+            this.background_player.Enabled = true;
+            this.background_player.Location = new System.Drawing.Point(677, 29);
+            this.background_player.Name = "background_player";
+            this.background_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("background_player.OcxState")));
+            this.background_player.Size = new System.Drawing.Size(236, 50);
+            this.background_player.TabIndex = 4;
+            this.background_player.Visible = false;
+            // 
             // character_box_2
             // 
             this.character_box_2.Location = new System.Drawing.Point(64, 172);
@@ -181,6 +201,7 @@
             this.avatar_box.Name = "avatar_box";
             this.avatar_box.Size = new System.Drawing.Size(984, 191);
             this.avatar_box.TabIndex = 1;
+            this.avatar_box.Visible = false;
             this.avatar_box.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel2
@@ -194,6 +215,54 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(787, 156);
             this.panel2.TabIndex = 4;
+            // 
+            // select_4
+            // 
+            this.select_4.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_4.Location = new System.Drawing.Point(378, 72);
+            this.select_4.Name = "select_4";
+            this.select_4.Size = new System.Drawing.Size(352, 53);
+            this.select_4.TabIndex = 8;
+            this.select_4.Text = "button1";
+            this.select_4.UseVisualStyleBackColor = true;
+            this.select_4.Visible = false;
+            this.select_4.Click += new System.EventHandler(this.select_4_Click);
+            // 
+            // select_3
+            // 
+            this.select_3.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_3.Location = new System.Drawing.Point(378, 13);
+            this.select_3.Name = "select_3";
+            this.select_3.Size = new System.Drawing.Size(352, 53);
+            this.select_3.TabIndex = 7;
+            this.select_3.Text = "button1";
+            this.select_3.UseVisualStyleBackColor = true;
+            this.select_3.Visible = false;
+            this.select_3.Click += new System.EventHandler(this.select_3_Click);
+            // 
+            // select_2
+            // 
+            this.select_2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_2.Location = new System.Drawing.Point(20, 72);
+            this.select_2.Name = "select_2";
+            this.select_2.Size = new System.Drawing.Size(352, 53);
+            this.select_2.TabIndex = 6;
+            this.select_2.Text = "button1";
+            this.select_2.UseVisualStyleBackColor = true;
+            this.select_2.Visible = false;
+            this.select_2.Click += new System.EventHandler(this.select_2_Click);
+            // 
+            // select_1
+            // 
+            this.select_1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.select_1.Location = new System.Drawing.Point(20, 13);
+            this.select_1.Name = "select_1";
+            this.select_1.Size = new System.Drawing.Size(352, 53);
+            this.select_1.TabIndex = 5;
+            this.select_1.Text = "button1";
+            this.select_1.UseVisualStyleBackColor = true;
+            this.select_1.Visible = false;
+            this.select_1.Click += new System.EventHandler(this.select_1_Click);
             // 
             // dialogue
             // 
@@ -238,74 +307,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // background_player
-            // 
-            this.background_player.Enabled = true;
-            this.background_player.Location = new System.Drawing.Point(677, 29);
-            this.background_player.Name = "background_player";
-            this.background_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("background_player.OcxState")));
-            this.background_player.Size = new System.Drawing.Size(236, 50);
-            this.background_player.TabIndex = 4;
-            this.background_player.Visible = false;
-            // 
-            // audio_player
-            // 
-            this.audio_player.Enabled = true;
-            this.audio_player.Location = new System.Drawing.Point(677, 85);
-            this.audio_player.Name = "audio_player";
-            this.audio_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("audio_player.OcxState")));
-            this.audio_player.Size = new System.Drawing.Size(236, 50);
-            this.audio_player.TabIndex = 5;
-            this.audio_player.Visible = false;
-            // 
-            // select_1
-            // 
-            this.select_1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.select_1.Location = new System.Drawing.Point(20, 13);
-            this.select_1.Name = "select_1";
-            this.select_1.Size = new System.Drawing.Size(352, 53);
-            this.select_1.TabIndex = 5;
-            this.select_1.Text = "button1";
-            this.select_1.UseVisualStyleBackColor = true;
-            this.select_1.Visible = false;
-            this.select_1.Click += new System.EventHandler(this.select_1_Click);
-            // 
-            // select_2
-            // 
-            this.select_2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.select_2.Location = new System.Drawing.Point(20, 72);
-            this.select_2.Name = "select_2";
-            this.select_2.Size = new System.Drawing.Size(352, 53);
-            this.select_2.TabIndex = 6;
-            this.select_2.Text = "button1";
-            this.select_2.UseVisualStyleBackColor = true;
-            this.select_2.Visible = false;
-            this.select_2.Click += new System.EventHandler(this.select_2_Click);
-            // 
-            // select_3
-            // 
-            this.select_3.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.select_3.Location = new System.Drawing.Point(378, 13);
-            this.select_3.Name = "select_3";
-            this.select_3.Size = new System.Drawing.Size(352, 53);
-            this.select_3.TabIndex = 7;
-            this.select_3.Text = "button1";
-            this.select_3.UseVisualStyleBackColor = true;
-            this.select_3.Visible = false;
-            this.select_3.Click += new System.EventHandler(this.select_3_Click);
-            // 
-            // select_4
-            // 
-            this.select_4.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.select_4.Location = new System.Drawing.Point(378, 72);
-            this.select_4.Name = "select_4";
-            this.select_4.Size = new System.Drawing.Size(352, 53);
-            this.select_4.TabIndex = 8;
-            this.select_4.Text = "button1";
-            this.select_4.UseVisualStyleBackColor = true;
-            this.select_4.Visible = false;
-            this.select_4.Click += new System.EventHandler(this.select_4_Click);
-            // 
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
@@ -317,6 +318,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -328,6 +330,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background_player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.character_box_1)).EndInit();
             this.avatar_box.ResumeLayout(false);
@@ -335,8 +339,6 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.background_player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.audio_player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

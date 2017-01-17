@@ -20,6 +20,9 @@ namespace AVG_Creator
         int current_line = 0;
         int answer = 0;
         int software_version = 1000;
+        int last_dialog_point = 0;
+        int last_background_point = 0;
+        int last_summon_point = 0;
         string[] script_content;
         string[] game_info; //[0]=遊戲名稱,[1]=作者,[2]=備註,[3]=AVG Creator版本,[4]=遊戲版本
         bool game_loaded = false;
@@ -75,6 +78,7 @@ namespace AVG_Creator
                             break;
 
                             case "[bgim]":
+                                last_background_point = current_line - 1;
                                 process = script_content[current_line].Remove(0, 6);
                                 background.Image = Image.FromFile("assets\\" + process);
                                 current_line++;
@@ -82,6 +86,7 @@ namespace AVG_Creator
                             break;
 
                             case "[dial]":
+                                last_dialog_point = current_line - 1;
                                 process = script_content[current_line].Remove(0, 6);
                                 string[] dial = process.Split(',');
                                 character_name.Text = dial[0];
@@ -92,6 +97,7 @@ namespace AVG_Creator
                             break;
 
                             case "[char]":
+                                last_summon_point = current_line - 1;
                                 process = script_content[current_line].Remove(0, 6);
                                 string[] character = process.Split(',');
                                 if( character[0] == "1" )
@@ -327,6 +333,7 @@ namespace AVG_Creator
                     file.Close();
 
                     game_loaded = true;
+                    avatar_box.Visible = true;
                     Load_Next_Scene();
                 }
                 catch (Exception ex)
@@ -400,7 +407,7 @@ namespace AVG_Creator
                     }
                     using (StreamWriter newTask = new StreamWriter(saveFileDialog1.FileName, false))
                     {
-                        newTask.WriteLine((current_line - 1).ToString());
+                        newTask.WriteLine(Math.Min(Math.Min(last_background_point, last_dialog_point), last_summon_point).ToString());
                     }
                 }
             } else {
