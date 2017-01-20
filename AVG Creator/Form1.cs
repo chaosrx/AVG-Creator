@@ -325,9 +325,9 @@ namespace AVG_Creator
                     }
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                MessageBox.Show("載入腳本時發生錯誤：\r" + e, "錯誤訊息",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("載入腳本時發生錯誤，錯誤行號：" + (current_line + 1), "錯誤訊息",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
